@@ -8,10 +8,6 @@ class Spree::Calculator::QuebecTax < Spree::Calculator
   end
 
   def compute(order)
-    matched_line_items = order.line_items.select do |line_item|
-      line_item.product.tax_category == rate.tax_category
-    end
-
     line_items_total = matched_line_items.sum(&:total)
     calculate_taxation(line_items_total)
   end
