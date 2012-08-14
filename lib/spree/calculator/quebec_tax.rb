@@ -8,8 +8,7 @@ class Spree::Calculator::QuebecTax < Spree::Calculator
   end
 
   def compute(order)
-    line_items_total = matched_line_items.sum(&:total)
-    calculate_taxation(line_items_total)
+    calculate_taxation(order.item_total)
   end
 
   private
