@@ -14,9 +14,9 @@ class Spree::Calculator::PrinceEdwardTax < Spree::Calculator
   private
 
   def calculate_taxation(total)
-    tps = total * 0.05
-    tvq = (total + tps) * 0.1 #TVQ
-    tax = round_to_two_places(tps + tvq)
+    gst = total * 0.05
+    pst = (total + gst) * 0.1 #PST
+    tax = round_to_two_places(gst + pst)
     return tax
   end
 
