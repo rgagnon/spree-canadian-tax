@@ -19,7 +19,9 @@ module SpreeCanadianTax
 
     initializer "spree.register.calculators" do |app|
       require 'spree/calculator/quebec_tax'
+      require 'spree/calculator/prince_edward_tax'
       app.config.spree.calculators.tax_rates << Spree::Calculator::QuebecTax
+      app.config.spree.calculators.tax_rates << Spree::Calculator::PrinceEdwardTax
     end
 
     config.to_prepare &method(:activate).to_proc
