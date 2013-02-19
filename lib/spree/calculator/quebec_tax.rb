@@ -15,7 +15,7 @@ class Spree::Calculator::QuebecTax < Spree::Calculator
 
   def calculate_taxation(total)
     tps = total * 0.05
-    tvq = (total + tps) * 0.095 #TVQ
+    tvq = total * 0.09975 #TVQ
     tax = round_to_two_places(tps + tvq)
     return tax
   end
